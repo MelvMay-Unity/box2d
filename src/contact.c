@@ -334,8 +334,8 @@ void b2CreateContact( b2World* world, b2Shape* shapeA, b2Shape* shapeB )
 	contactSim->shapeIdB = shapeIdB;
 	contactSim->cache = b2_emptyDistanceCache;
 	contactSim->manifold = ( b2Manifold ){ 0 };
-	contactSim->friction = b2MixFloats( shapeA->friction, shapeB->friction, world->frictionMixingRule );
-	contactSim->restitution = b2MixFloats( shapeA->restitution, shapeB->restitution, world->restitutionMixingRule );
+	contactSim->friction = b2MixFloats( shapeA->friction, shapeB->friction, b2MaxInt(shapeA->frictionMixingRule, shapeB->frictionMixingRule) );
+	contactSim->restitution = b2MixFloats( shapeA->restitution, shapeB->restitution, b2MaxInt(shapeA->restitutionMixingRule, shapeB->restitutionMixingRule) );
 	contactSim->tangentSpeed = 0.0f;
 	contactSim->simFlags = 0;
 

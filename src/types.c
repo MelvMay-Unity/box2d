@@ -20,8 +20,6 @@ b2WorldDef b2DefaultWorldDef( void )
 	def.jointDampingRatio = 2.0f;
 	// 400 meters per second, faster than the speed of sound
 	def.maximumLinearVelocity = 400.0f * b2_lengthUnitsPerMeter;
-	def.frictionMixingRule = b2_mixGeometricMean;
-	def.restitutionMixingRule = b2_mixMaximum;
 	def.enableSleep = true;
 	def.enableContinuous = true;
 	def.internalValue = B2_SECRET_COOKIE;
@@ -59,6 +57,8 @@ b2ShapeDef b2DefaultShapeDef( void )
 	b2ShapeDef def = { 0 };
 	def.friction = 0.6f;
 	def.density = 1.0f;
+	def.frictionMixingRule = b2_mixGeometricMean;
+	def.restitutionMixingRule = b2_mixMaximum;
 	def.filter = b2DefaultFilter();
 	def.enableSensorEvents = true;
 	def.updateBodyMass = true;

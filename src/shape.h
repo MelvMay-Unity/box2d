@@ -26,6 +26,9 @@ typedef struct b2Shape
 	b2Vec2 localCentroid;
 	int proxyKey;
 
+	b2MixingRule frictionMixingRule;
+	b2MixingRule restitutionMixingRule;
+
 	b2Filter filter;
 	void* userData;
 	uint32_t customColor;

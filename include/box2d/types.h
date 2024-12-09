@@ -106,12 +106,6 @@ typedef struct b2WorldDef
 	/// Maximum linear velocity. Usually meters per second.
 	float maximumLinearVelocity;
 
-	/// Mixing rule for friction. Default is b2_mixGeometricMean.
-	b2MixingRule frictionMixingRule;
-
-	/// Mixing rule for restitution. Default is b2_mixMaximum.
-	b2MixingRule restitutionMixingRule;
-
 	/// Can bodies go to sleep to improve performance
 	bool enableSleep;
 
@@ -337,6 +331,12 @@ typedef struct b2ShapeDef
 
 	/// The density, usually in kg/m^2.
 	float density;
+
+	/// Mixing rule for friction. Default is b2_mixGeometricMean.
+	b2MixingRule frictionMixingRule;
+
+	/// Mixing rule for restitution. Default is b2_mixMaximum.
+	b2MixingRule restitutionMixingRule;
 
 	/// Collision filtering data.
 	b2Filter filter;

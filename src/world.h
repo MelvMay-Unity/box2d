@@ -136,9 +136,6 @@ typedef struct b2World
 	float jointHertz;
 	float jointDampingRatio;
 
-	b2MixingRule frictionMixingRule;
-	b2MixingRule restitutionMixingRule;
-
 	uint16_t revision;
 
 	b2Profile profile;

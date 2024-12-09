@@ -108,6 +108,8 @@ static b2Shape* b2CreateShapeInternal( b2World* world, b2Body* body, b2Transform
 	shape->density = def->density;
 	shape->friction = def->friction;
 	shape->restitution = def->restitution;
+    shape->frictionMixingRule = def->frictionMixingRule;
+    shape->restitutionMixingRule = def->restitutionMixingRule;
 	shape->filter = def->filter;
 	shape->userData = def->userData;
 	shape->customColor = def->customColor;

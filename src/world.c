@@ -183,8 +183,6 @@ b2WorldId b2CreateWorld( const b2WorldDef* def )
 	world->contactDampingRatio = def->contactDampingRatio;
 	world->jointHertz = def->jointHertz;
 	world->jointDampingRatio = def->jointDampingRatio;
-	world->frictionMixingRule = def->frictionMixingRule;
-	world->restitutionMixingRule = def->restitutionMixingRule;
 	world->enableSleep = def->enableSleep;
 	world->locked = false;
 	world->enableWarmStarting = true;
