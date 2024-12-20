@@ -8,3 +8,6 @@ settings.ini
 CMakeUserPresets.json
 .cache/
 .idea/
+_deps/
+CMakeFiles/
+samples/imgui-subbuild
