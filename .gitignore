@@ -8,3 +8,11 @@ settings.ini
 CMakeUserPresets.json
 .cache/
 .idea/
+_deps/
+CMakeFiles/
+CMakeCache.txt
+imgui-subbuild
+*.vcxproj
+*.vcxproj.filters
+*.cmake
+*.sln
