@@ -59,6 +59,7 @@ void b2Shutdown(void)
 	B2_ASSERT( b2_worlds != NULL );
 
     b2Free( b2_worlds, sizeof(b2World) * b2_maxWorlds );
+    b2_worlds = NULL;
     b2_maxWorlds = 0;
 }
 
