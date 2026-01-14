@@ -559,6 +559,8 @@ int main( int, char** )
 	b2SetAllocator( AllocFcn, FreeFcn );
 	b2SetAssertFcn( AssertFcn );
 
+    b2Initialize( 128 );
+
 	char buffer[128];
 
 	s_context.Load();
@@ -762,6 +764,8 @@ int main( int, char** )
 	glfwTerminate();
 
 	s_context.Save();
+
+    b2Shutdown( );
 
 #if defined( _MSC_VER )
 	_CrtDumpMemoryLeaks();
