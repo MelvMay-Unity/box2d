@@ -31,7 +31,7 @@
 #include <string.h>
 
 uint16_t b2_maxWorlds = 0;
-static b2World* b2_worlds;
+static b2World* b2_worlds = NULL;
 
 B2_ARRAY_SOURCE( b2BodyMoveEvent, b2BodyMoveEvent )
 B2_ARRAY_SOURCE( b2ContactBeginTouchEvent, b2ContactBeginTouchEvent )
