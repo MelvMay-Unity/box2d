@@ -30,9 +30,8 @@
 #include <stdio.h>
 #include <string.h>
 
-_Static_assert( B2_MAX_WORLDS > 0, "must be 1 or more" );
-_Static_assert( B2_MAX_WORLDS < UINT16_MAX, "B2_MAX_WORLDS limit exceeded" );
-static b2World b2_worlds[B2_MAX_WORLDS];
+uint16_t b2_maxWorlds = 0;
+static b2World* b2_worlds;
 
 B2_ARRAY_SOURCE( b2BodyMoveEvent, b2BodyMoveEvent )
 B2_ARRAY_SOURCE( b2ContactBeginTouchEvent, b2ContactBeginTouchEvent )
@@ -41,6 +40,32 @@ B2_ARRAY_SOURCE( b2ContactHitEvent, b2ContactHitEvent )
 B2_ARRAY_SOURCE( b2SensorBeginTouchEvent, b2SensorBeginTouchEvent )
 B2_ARRAY_SOURCE( b2SensorEndTouchEvent, b2SensorEndTouchEvent )
 B2_ARRAY_SOURCE( b2TaskContext, b2TaskContext )
+
+void b2Initialize( const uint16_t maxWorlds )
+{
+	B2_ASSERT( b2_maxWorlds == 0 );
+	B2_ASSERT( b2_worlds == NULL );
+	B2_ASSERT( 1 <= maxWorlds );
+    b2_maxWorlds = maxWorlds;
+
+    const int size = sizeof(b2World) * b2_maxWorlds;
+	b2_worlds = b2Alloc( size );
+	memset( b2_worlds, 0, size );
+}
+
+void b2Shutdown(void)
+{
+	B2_ASSERT( b2_maxWorlds > 0 );
+	B2_ASSERT( b2_worlds != NULL );
+
+    b2Free( b2_worlds, sizeof(b2World) * b2_maxWorlds );
+    b2_maxWorlds = 0;
+}
+
+uint16_t b2GetMaxWorlds( void )
+{
+    return b2_maxWorlds;
+}
 
 b2World* b2GetWorldFromId( b2WorldId id )
 {
@@ -99,7 +124,6 @@ static float b2DefaultRestitutionCallback( float restitutionA, uint64_t material
 
 b2WorldId b2CreateWorld( const b2WorldDef* def )
 {
-	_Static_assert( B2_MAX_WORLDS < UINT16_MAX, "B2_MAX_WORLDS limit exceeded" );
 	B2_CHECK_DEF( def );
 
 	int worldId = B2_NULL_INDEX;

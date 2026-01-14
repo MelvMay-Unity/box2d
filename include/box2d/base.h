@@ -74,6 +74,16 @@ B2_API void b2SetAssertFcn( b2AssertFcn* assertFcn );
 /// @param logFcn a non-null log callback
 B2_API void b2SetLogFcn( b2LogFcn* logFcn );
 
+/// Initialize Box2D and set the maximum number of worlds allowed. This allocates space for worlds so the value should be reasonable. You must call b2SetAllocator before calling this.
+/// @param maxWorlds The maximum number of worlds allow, must be >0.
+B2_API void b2Initialize( const uint16_t maxWorlds );
+
+/// Shutdown Box2D and destroy all current world allocations.
+B2_API void b2Shutdown( void );
+
+/// Get the maximum number of worlds allow.
+B2_API uint16_t b2GetMaxWorlds( void );
+
 /// Version numbering scheme.
 /// See https://semver.org/
 typedef struct b2Version
