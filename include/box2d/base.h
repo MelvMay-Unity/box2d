@@ -74,7 +74,7 @@ B2_API void b2SetAssertFcn( b2AssertFcn* assertFcn );
 /// @param logFcn a non-null log callback
 B2_API void b2SetLogFcn( b2LogFcn* logFcn );
 
-/// Initialize Box2D and set the maximum number of worlds allowed. This allocates space for worlds so the value should be reasonable. You must call b2SetAllocator before calling this.
+/// Initialize Box2D and set the maximum number of worlds allowed. This allocates space for worlds so the value should be reasonable.
 /// @param maxWorlds The maximum number of worlds allow, must be >0.
 B2_API void b2Initialize( const uint16_t maxWorlds );
 
